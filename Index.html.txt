@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Be My Valentine</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background: pink;
+      margin-top: 100px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 20px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .yes-button {
+      background: green;
+      color: white;
+    }
+    .no-button {
+      background: red;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Will you be my Valentine?</h1>
+
+<button class="yes-button" onclick="handleYesClick()">Yes</button>
+<button class="no-button" onclick="handleNoClick()">No</button>
+
+<script>
+const messages = [
+  "Just think about it!",
+  "Are you sure?",
+  "Please reconsider!",
+  "Say yes ❤️"
+];
+
+let messageIndex = 0;
+
+function handleNoClick() {
+  const noButton = document.querySelector(".no-button");
+  const yesButton = document.querySelector(".yes-button");
+
+  noButton.textContent = messages[messageIndex];
+  messageIndex = (messageIndex + 1) % messages.length;
+
+  const currentSize = parseFloat(
+    window.getComputedStyle(yesButton).fontSize
+  );
+
+  yesButton.style.fontSize = `${currentSize * 1.5}px`;
+}
+
+function handleYesClick() {
+  alert("Yay! ❤️");
+}
+</script>
+
+</body>
+</html>
